@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Missionskarta - Digitalt Missionscenter</title>
+
+     <!-- Favicon för moderna webbläsare -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png"> <!-- Största favicon -->
+
+<!-- Apple Touch Ikoner för iOS och iPadOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/apple-icon-512x512.png"> <!-- Extra stor Apple-icon -->
+
+<!-- Microsoft Tile Ikon för Windows -->
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+
+<!-- SVG Favicon (För bästa kvalitet på alla skärmar) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- Tema för webbläsare -->
+<meta name="theme-color" content="#ffffff">
+
+
+    <!-- Andra meta-taggar eller länkar till CSS-filer kan placeras här -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e67e22;
+            --dark: #1a252f;
+            --light: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header med interaktiva kontroller */
+        .map-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .map-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .map-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Huvudkartcontainer */
+        .map-container {
+            flex: 1;
+            position: relative;
+            background: var(--dark);
+        }
+
+        #live-map {
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+
+        /* Interaktiv sidopanel */
+        .map-sidebar {
+            position: fixed;
+            right: -400px;
+            top: 0;
+            width: 400px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-active {
+            right: 0;
+        }
+
+        /* Marköranimationer */
+        .custom-marker {
+            position: absolute;
+            cursor: pointer;
+            transform: translate(-50%, -100%);
+            transition: all 0.3s;
+        }
+
+        .marker-pulse {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(230, 126, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 126, 34, 0); }
+        }
+
+        /* Realtidsdata sektion */
+        .live-stats {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .map-header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .map-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="map-header">
+        <h1>🌍 Global Missionskarta</h1>
+        <div class="map-controls">
+            <button class="map-btn" onclick="toggleSatellite()">
+                <span>🛰️</span> Satellitvy
+            </button>
+            <button class="map-btn" onclick="toggleSidebar()">
+                <span>ℹ️</span> Projektinfo
+            </button>
+            <button class="map-btn" onclick="focusOnHQ()">
+                <span>🏢</span> Huvudkontor
+            </button>
+        </div>
+    </header>
+
+    <div class="map-container">
+        <iframe 
+            id="live-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8140.725204400281!2d13.001543276057387!3d55.60467487246665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a159828e0adf%3A0x934b1a5eb4b20b9c!2sMalm%C3%B6%20Live!5e0!3m2!1ssv!2sse!4v1718127797715!5m2!1ssv!2sse" 
+            allowfullscreen 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        
+        <!-- Anpassade markörer -->
+        <div class="custom-marker" style="left: 50%; top: 50%" onclick="showInfo(1)">
+            <div class="marker-pulse"></div>
+        </div>
+    </div>
+
+    <div class="map-sidebar" id="sidebar">
+        <h2>Malmö Live</h2>
+        <div class="location-info">
+            <p>📍 Stortorget 8, 211 34 Malmö</p>
+            <p>📞 +46 40 34 35 00</p>
+            
+            <div class="live-stats">
+                <div class="stat-item">
+                    <span>Aktiva projekt:</span>
+                    <span id="active-projects">12</span>
+                </div>
+                <div class="stat-item">
+                    <span>Volontärer online:</span>
+                    <span id="volunteers-online">47</span>
+                </div>
+                <div class="stat-item">
+                    <span>Senaste aktivitet:</span>
+                    <span>2 min sedan</span>
+                </div>
+            </div>
+
+            <h3>Pågående aktiviteter</h3>
+            <ul class="activity-list">
+                <li>📚 Bibelstudiegrupp</li>
+                <li>🤝 Stödgrupp möte</li>
+                <li>🎨 Konstworkshop</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Sidopanelskontroll
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('sidebar-active');
+        }
+
+        // Satellitvyväxlare
+        function toggleSatellite() {
+            const map = document.getElementById('live-map');
+            const isSatellite = map.src.includes("maptype=satellite");
+            map.src = isSatellite 
+                ? map.src.replace("&maptype=satellite", "") 
+                : map.src + "&maptype=satellite";
+        }
+
+        // Simulerad realtidsdata
+        function updateLiveStats() {
+            document.getElementById('active-projects').textContent = 
+                Math.floor(Math.random() * 5 + 10);
+            document.getElementById('volunteers-online').textContent = 
+                Math.floor(Math.random() * 20 + 30);
+        }
+
+        // Simulera markörinteraktion
+        function showInfo(markerId) {
+            toggleSidebar();
+        }
+
+        // Uppdatera data var 10:e sekund
+        setInterval(updateLiveStats, 10000);
+        updateLiveStats();
+
+        // Huvudkontorsfokus
+        function focusOnHQ() {
+            const map = document.getElementById('live-map');
+            map.src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8140.725204400281!2d13.001543276057387!3d55.60467487246665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4653a159828e0adf%3A0x934b1a5eb4b20b9c!2sMalm%C3%B6%20Live!5e0!3m2!1ssv!2sse!4v1718127797715!5m2!1ssv!2sse";
+        }
+    </script>
+</body>
+</html>
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67b0bca7fb6773190d790aa1/1ik561s69';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->

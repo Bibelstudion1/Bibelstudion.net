@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibelstudion.se</title>
+
+ <!-- Favicon för moderna webbläsare -->
+ <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+ <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+ <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+ <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+ <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png"> <!-- Största favicon -->
+ 
+ <!-- Apple Touch Ikoner för iOS och iPadOS -->
+ <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+ <link rel="apple-touch-icon" sizes="512x512" href="/apple-icon-512x512.png"> <!-- Extra stor Apple-icon -->
+ 
+ <!-- Microsoft Tile Ikon för Windows -->
+ <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+ <meta name="msapplication-TileColor" content="#ffffff">
+ 
+ <!-- SVG Favicon (För bästa kvalitet på alla skärmar) -->
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+ 
+ <!-- Web App Manifest -->
+ <link rel="manifest" href="/manifest.json">
+ 
+ <!-- Tema för webbläsare -->
+ <meta name="theme-color" content="#ffffff">
+ 
+ 
+     <!-- Andra meta-taggar eller länkar till CSS-filer kan placeras här -->
+     <link rel="stylesheet" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui;
+      background-color: #0a0a0a;
+      color: #ffffff;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      background-color: #111111;
+      color: #ffffff;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .top-bar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-right: 25px;
+      font-size: 0.9rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .top-bar a:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .header {
+      position: sticky;
+      top: 30px;
+      background-color: #000000;
+      padding: 15px 20px;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      color: #00ff88;
+      font-weight: 700;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      margin: 0 40px;
+      max-width: 600px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 12px 20px;
+      background: #1a1a1a;
+      border: 1px solid #333333;
+      border-radius: 30px;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: #00ff88;
+      box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+    }
+
+    .search-bar button {
+      padding: 12px 25px;
+      background: linear-gradient(135deg, #00ff88, #00cc6a);
+      border: none;
+      color: #000000;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-left: -75px;
+      transition: all 0.3s ease;
+    }
+
+    .search-bar button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+    }
+
+    .user-actions {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .user-actions a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .user-actions a:hover {
+      color: #00ff88;
+    }
+
+    .nav-links {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      border-bottom: 1px solid #2a2a2a;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background-color: #333333;
+      color: #00ff88;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 0.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(45deg, #00ff88, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100px;
+      /* Adjust height as needed */
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+
+    footer p:first-child {
+      color: #00ff88;
+      /* Company name color */
+    }
+
+    footer p:last-child {
+      color: #888888;
+      /* Partner info color */
+    }
+
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="top-bar">
+    <div>
+      <a href="Enterprise Solutions.html">Enterprise Solutions</a>
+      <a href="support.html">Support</a>
+      <a href="kontakt.html">Kontakt</a>
+    </div>
+    <div>
+      <a href="#">+46 764375307</a>
+      <a href="Bibelstudion.html">info@Bibelstudionab.se</a>
+    </div>
+  </div>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html" style="text-decoration: none; color: inherit;">
+        <span>Bibel</span>Studion
+      </a>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Sök efter tjänster eller produkter...">
+      <button>Sök</button>
+    </div>
+    <div class="user-actions">
+      <a href="login.html" class="action-link" id="loginToggle">
+        <i class="fas fa-user"></i>
+        <span>Logga in</span>
+      </a>
+
+      <a href="kundvagn.html" class="action-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Kundvagn</span>
+      </a>
+    </div>
+
+
+    <style>
+      .user-actions {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .action-link {
+        color: #00ff88;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 5px;
+      }
+
+      .action-link:hover {
+        background-color: rgba(0, 255, 136, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .action-link i {
+        font-size: 1.2em;
+      }
+
+      /* Responsiv design */
+      @media (max-width: 768px) {
+        .user-actions {
+          gap: 15px;
+        }
+
+        .action-link span {
+          display: none;
+        }
+
+        .action-link i {
+          font-size: 1.5em;
+        }
+      }
+    </style>
+
+    <!-- Lägg till Font Awesome i headern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+
+        <div class="auth-container">
+          <div class="auth-header">
+            <i class="fas fa-user-shield main-icon"></i>
+            <h2>Välkommen tillbaka</h2>
+          </div>
+
+          <form id="loginForm" class="auth-form">
+            <div class="input-group">
+              <input type="email" id="email" placeholder="E-postadress" required>
+              <i class="fas fa-envelope input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input type="password" id="password" placeholder="Lösenord" required>
+              <i class="fas fa-lock input-icon"></i>
+              <button type="button" class="password-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+
+            <button type="submit" class="auth-btn">
+              <span class="btn-text">Logga in</span>
+              <div class="loading-dots"></div>
+            </button>
+
+            <div class="auth-footer">
+              <p>Ny hos oss? <a href="#" class="register-link">Skapa konto</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Modal Design */
+      .login-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 26, 26, 0.95);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+      }
+
+      .modal-content {
+        background: #1a1a1a;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid #00ff88;
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+
+      .login-modal.active {
+        display: flex;
+        animation: modalFadeIn 0.3s forwards;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Input Fields */
+      .input-group {
+        position: relative;
+        margin: 1.5rem 0;
+      }
+
+      input {
+        width: 90%;
+        padding: 12px 40px 12px 15px;
+        background: #2a2a2a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      input:focus {
+        border-color: #00ff88;
+        box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+      }
+
+      .input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+      }
+
+      .auth-btn {
+        width: 100%;
+        padding: 15px;
+        background: #00ff88;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .auth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #00ff88;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      // Modal Toggle
+      const loginModal = document.getElementById('loginModal');
+      const loginToggle = document.getElementById('loginToggle');
+
+      loginToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.classList.toggle('active');
+        document.body.style.overflow = loginModal.classList.contains('active') ? 'hidden' : 'auto';
+      });
+
+      // Close Modal
+      document.addEventListener('click', (e) => {
+        if (e.target === loginModal || e.target.closest('.close-modal')) {
+          loginModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Password Toggle
+      document.querySelectorAll('.password-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const input = button.previousElementSibling;
+          input.type = input.type === 'password' ? 'text' : 'password';
+          button.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+      });
+
+      // Form Handling
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+
+        btn.disabled = true;
+        btn.classList.add('loading');
+
+        // Simulerat API-anrop
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.classList.remove('loading');
+          loginModal.classList.remove('active');
+          // Uppdatera användargränssnittet här efter lyckad inloggning
+          document.querySelector('.user-actions').innerHTML = `
+            <div class="user-profile">
+                <i class="fas fa-user-check"></i>
+                <span>Mitt Konto</span>
+            </div>
+        `;
+        }, 1500);
+      });
+
+      // ESC Key to Close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && loginModal.classList.contains('active')) {
+          loginModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    </script>
+
+
+    <!-- Knapp för att öppna Skapa Konto-modalen -->
+    <button id="registerToggle"
+      style="margin: 4px; padding: 10px 20px; background: #00ff88; color: #1a1a1a; border: none; border-radius: 5px; cursor: pointer;">
+      Registrera
+    </button>
+
+
+    <!-- Skapa Konto Modal -->
+    <div class="register-modal" id="registerModal">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+
+        <div class="auth-container">
+          <div class="auth-header">
+            <i class="fas fa-user-plus main-icon"></i>
+            <h2>Skapa ett konto</h2>
+            <p>Bli en del av vår community</p>
+          </div>
+
+          <form id="registerForm" class="auth-form">
+            <div class="input-group">
+              <input type="text" id="fullName" placeholder="Fullständigt namn" required>
+              <i class="fas fa-user input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input type="email" id="registerEmail" placeholder="E-postadress" required>
+              <i class="fas fa-envelope input-icon"></i>
+            </div>
+
+            <div class="input-group">
+              <input type="password" id="registerPassword" placeholder="Lösenord" required>
+              <i class="fas fa-lock input-icon"></i>
+              <button type="button" class="password-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+
+            <div class="input-group">
+              <input type="password" id="confirmPassword" placeholder="Bekräfta lösenord" required>
+              <i class="fas fa-lock input-icon"></i>
+              <button type="button" class="password-toggle">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+
+            <button type="submit" class="auth-btn">
+              <span class="btn-text">Skapa konto</span>
+              <div class="loading-dots"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font Awesome för ikoner -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+      /* Modal Design */
+      .register-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 26, 26, 0.95);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(5px);
+      }
+
+      .register-modal.active {
+        display: flex;
+        animation: modalFadeIn 0.3s forwards;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background: #1a1a1a;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid #00ff88;
+        width: 90%;
+        max-width: 400px;
+        position: relative;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+
+      /* Header */
+      .auth-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .auth-header .main-icon {
+        font-size: 2.5rem;
+        color: #00ff88;
+        margin-bottom: 0.5rem;
+      }
+
+      .auth-header h2 {
+        color: #00ff88;
+        font-size: 1.8em;
+        margin: 0.5rem 0;
+      }
+
+      .auth-header p {
+        color: #ccc;
+        font-size: 0.9em;
+      }
+
+      /* Input Fields */
+      .input-group {
+        position: relative;
+        margin: 1.5rem 0;
+      }
+
+      input {
+        width: 90%;
+        padding: 12px 40px 12px 15px;
+        background: #2a2a2a;
+        border: 1px solid #333;
+        border-radius: 8px;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      input:focus {
+        border-color: #00ff88;
+        box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+      }
+
+      .input-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #666;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+      }
+
+      /* Submit Button */
+      .auth-btn {
+        width: 100%;
+        padding: 15px;
+        background: #00ff88;
+        color: #1a1a1a;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .auth-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+      }
+
+      /* Close Button */
+      .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #00ff88;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Loading Animation */
+      .loading-dots {
+        display: none;
+        justify-content: center;
+        gap: 4px;
+        margin-left: 8px;
+      }
+
+      .loading-dots::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #1a1a1a;
+        border-radius: 50%;
+        animation: bounce 1s infinite;
+      }
+
+      .loading-dots::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #1a1a1a;
+        border-radius: 50%;
+        animation: bounce 1s infinite 0.2s;
+      }
+
+      .loading-dots span {
+        width: 6px;
+        height: 6px;
+        background: #1a1a1a;
+        border-radius: 50%;
+        animation: bounce 1s infinite 0.4s;
+      }
+
+      @keyframes bounce {
+
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      .auth-btn.loading .btn-text {
+        display: none;
+      }
+
+      .auth-btn.loading .loading-dots {
+        display: flex;
+      }
+    </style>
+
+    <script>
+      // Modal Toggle
+      const registerModal = document.getElementById('registerModal');
+      const registerToggle = document.getElementById('registerToggle');
+
+      registerToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // Close Modal
+      document.addEventListener('click', (e) => {
+        if (e.target === registerModal || e.target.closest('.close-modal')) {
+          registerModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Password Toggle
+      document.querySelectorAll('.password-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+          const input = button.previousElementSibling;
+          input.type = input.type === 'password' ? 'text' : 'password';
+          button.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+      });
+
+      // Form Handling
+      document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+
+        btn.disabled = true;
+        btn.classList.add('loading');
+
+        // Simulerat API-anrop för registrering
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.classList.remove('loading');
+          registerModal.classList.remove('active');
+          alert('Registrering lyckades! Välkommen.');
+        }, 1500);
+      });
+
+      // ESC Key to Close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && registerModal.classList.contains('active')) {
+          registerModal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    </script>
+
+
+
+  </header>
+
+  <nav class="nav-links">
+    <a href="index.html">Hem</a>
+    <a href="om oss.html">Om oss</a>
+    <a href="karriär.html">Karriär</a>
+    <a href="nyhetsbrev.html">Nyhetsbrev</a>
+    <a href="Fritid.html">Butik</a>
+    <a href="medlemskap.html">Medlemskap</a>
+    <a href="skolan.html">Skolan</a>
+    <a href="gava.html">Ge en Gåva</a>
+    <a href="bible.html">Bibel</a>
+    <a href="5 stjärnor.html">5 stjärnor</a>
+    <a href="vara-tjanster.html">Tjänster</a>
+  </nav>
+<!-- Sektion -->
+<section style="background-color: #0a0a0a; color: white; padding: 20px; font-family: Arial, sans-serif;">
+    <h1 style="color: #00ff88; text-align: center; font-size: 2.5em; margin-bottom: 20px;">Ersättningsmetoden</h1>
+    
+    <!-- Innehållscontainer -->
+    <div style="max-width: 800px; margin: 0 auto;">
+        <!-- Introduktion -->
+        <h2 style="color: #00ff88; font-size: 1.8em; margin-bottom: 10px;">Vad är ersättningsmetoden?</h2>
+        <p style="font-size: 1.1em; line-height: 1.6;">
+            Ersättningsmetoden är en teknik för att lösa ekvationssystem. Metoden går ut på att lösa en av ekvationerna för en variabel och sedan ersätta detta uttryck i den andra ekvationen. Detta gör det möjligt att lösa för en variabel i taget och hitta lösningen till systemet.
+        </p>
+
+        <!-- Exempel och lösningar -->
+        <h2 style="color: #00ff88; font-size: 1.8em; margin-top: 30px; margin-bottom: 10px;">Exempel och lösningar</h2>
+        <div style="background-color: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #00ff88; font-size: 1.4em; margin-bottom: 10px;">Exempel 1: Lös ekvationssystem med ersättningsmetoden</h3>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                <strong>Problem:</strong> Lös ekvationssystemet: <br>
+                <code>y = 2x + 1</code> <br>
+                <code>3x + y = 10</code> <br>
+                <strong>Lösning:</strong> <br>
+                1. Ersätt <code>y</code> i den andra ekvationen med <code>2x + 1</code>: <br>
+                <code>3x + (2x + 1) = 10</code>. <br>
+                2. Förenkla: <code>5x + 1 = 10</code>. <br>
+                3. Lös för <code>x</code>: <code>5x = 9</code> → <code>x = 1.8</code>. <br>
+                4. Ersätt <code>x</code> i den första ekvationen för att hitta <code>y</code>: <br>
+                <code>y = 2(1.8) + 1 = 4.6</code>. <br>
+                Lösningen är <code>x = 1.8</code> och <code>y = 4.6</code>.
+            </p>
+        </div>
+
+        <div style="background-color: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #00ff88; font-size: 1.4em; margin-bottom: 10px;">Exempel 2: Lös ekvationssystem med ersättningsmetoden</h3>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                <strong>Problem:</strong> Lös ekvationssystemet: <br>
+                <code>2x + y = 5</code> <br>
+                <code>x - y = 1</code> <br>
+                <strong>Lösning:</strong> <br>
+                1. Lös den andra ekvationen för <code>x</code>: <code>x = y + 1</code>. <br>
+                2. Ersätt <code>x</code> i den första ekvationen: <br>
+                <code>2(y + 1) + y = 5</code>. <br>
+                3. Förenkla: <code>2y + 2 + y = 5</code> → <code>3y + 2 = 5</code>. <br>
+                4. Lös för <code>y</code>: <code>3y = 3</code> → <code>y = 1</code>. <br>
+                5. Ersätt <code>y</code> i uttrycket för <code>x</code>: <code>x = 1 + 1 = 2</code>. <br>
+                Lösningen är <code>x = 2</code> och <code>y = 1</code>.
+            </p>
+        </div>
+
+        <div style="background-color: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #00ff88; font-size: 1.4em; margin-bottom: 10px;">Exempel 3: Lös ekvationssystem med ersättningsmetoden</h3>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                <strong>Problem:</strong> Lös ekvationssystemet: <br>
+                <code>4x - y = 7</code> <br>
+                <code>2x + 3y = 1</code> <br>
+                <strong>Lösning:</strong> <br>
+                1. Lös den första ekvationen för <code>y</code>: <code>y = 4x - 7</code>. <br>
+                2. Ersätt <code>y</code> i den andra ekvationen: <br>
+                <code>2x + 3(4x - 7) = 1</code>. <br>
+                3. Förenkla: <code>2x + 12x - 21 = 1</code> → <code>14x - 21 = 1</code>. <br>
+                4. Lös för <code>x</code>: <code>14x = 22</code> → <code>x = 1.57</code>. <br>
+                5. Ersätt <code>x</code> i uttrycket för <code>y</code>: <code>y = 4(1.57) - 7 = -0.72</code>. <br>
+                Lösningen är <code>x ≈ 1.57</code> och <code>y ≈ -0.72</code>.
+            </p>
+        </div>
+
+        <!-- Interaktiv del -->
+        <h2 style="color: #00ff88; font-size: 1.8em; margin-top: 30px; margin-bottom: 10px;">Testa dig själv</h2>
+        <div style="background-color: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #00ff88; font-size: 1.4em; margin-bottom: 10px;">Uppgift 1</h3>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                Lös ekvationssystemet: <br>
+                <code>y = 3x - 2</code> <br>
+                <code>2x + y = 8</code> <br>
+                Vad är lösningen? (Ange som <code>(x, y)</code>) <br>
+                <input type="text" id="answer1" placeholder="Skriv ditt svar här" style="padding: 5px; font-size: 1em; width: 100%; max-width: 300px; margin-top: 10px;">
+                <button onclick="checkAnswer('answer1', '(2, 4)')" style="background-color: #00ff88; color: #0a0a0a; padding: 5px 10px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; margin-top: 10px;">Kontrollera svar</button>
+                <span id="result1" style="margin-left: 10px;"></span>
+            </p>
+        </div>
+
+        <div style="background-color: #1a1a1a; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="color: #00ff88; font-size: 1.4em; margin-bottom: 10px;">Uppgift 2</h3>
+            <p style="font-size: 1.1em; line-height: 1.6;">
+                Lös ekvationssystemet: <br>
+                <code>x + y = 5</code> <br>
+                <code>2x - y = 4</code> <br>
+                Vad är lösningen? (Ange som <code>(x, y)</code>) <br>
+                <input type="text" id="answer2" placeholder="Skriv ditt svar här" style="padding: 5px; font-size: 1em; width: 100%; max-width: 300px; margin-top: 10px;">
+                <button onclick="checkAnswer('answer2', '(3, 2)')" style="background-color: #00ff88; color: #0a0a0a; padding: 5px 10px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; margin-top: 10px;">Kontrollera svar</button>
+                <span id="result2" style="margin-left: 10px;"></span>
+            </p>
+        </div>
+
+        <!-- Klickbar knapp för att gå tillbaka -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="javascript:history.back()" style="text-decoration: none;">
+                <button style="background-color: #00ff88; color: #0a0a0a; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer;">
+                    Tillbaka till föregående sida
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Sektion -->
+
+<script>
+    // Funktion för att kontrollera svar
+    function checkAnswer(inputId, correctAnswer) {
+        const userAnswer = document.getElementById(inputId).value.trim();
+        const resultElement = document.getElementById(`result${inputId.slice(-1)}`);
+        if (userAnswer === correctAnswer) {
+            resultElement.textContent = "✅ Rätt!";
+            resultElement.style.color = "#00ff88";
+        } else {
+            resultElement.textContent = "❌ Fel, försök igen.";
+            resultElement.style.color = "#ff4444";
+        }
+    }
+</script>
+  <footer>
+    <div class="info-container">
+      <div class="info-item">
+        <h2>Följ Bibelstudion</h2>
+        <p>Följ oss på sociala medier för senaste nyheter och erbjudanden.</p>
+        <ul>
+          <li><a href="https://www.facebook.com/Bibelstudion.23">Facebook</a></li>
+          <li><a href="https://www.tiktok.com/@bibelstudion1">TikTok</a></li>
+          <li><a href="https://www.youtube.com/channel/UCbr9n2H-FZ0ZltRjcLqASng">YouTube</a></li>
+          <a class="AppLink_AppLink__uXETs"
+            href="https://apps.apple.com/us/app/mathem/id1076840480?ign-itscg=30200&amp;ign-itsct=apps_box_badge"><img
+              class="k-image" width="139" height="50" loading="lazy" decoding="async" alt="App store badge"
+              src="https://cdn.sanity.io/images/1teetjp9/production/d06e2189e4d6f74d74fb05c26c47efb1a1117967-120x40.svg"></a>
+          <a class="AppLink_AppLink__uXETs"
+            href="https://play.google.com/store/apps/details?id=se.mathem.mathem&amp;pcampaignid=web_share"><img
+              class="k-image" width="139" height="50" loading="lazy" decoding="async" alt="Google play badge"
+              src="https://cdn.sanity.io/images/1teetjp9/production/b46ac873f892190c97f30eed0e1042a585f6c813-646x250.png"></a>
+        </ul>
+      </div>
+
+      <div class="info-item">
+        <h2>Ladda ner</h2>
+        <p>Få tillgång till exklusiva erbjudanden och spåra dina beställningar via vår app.</p>
+        <ul>
+          <li><a href="Prisvarningar.html">Prisvarningar</a></li>
+          <li><a href="Varningar om låga lagervaror.html">Varningar om låga lagervaror</a></li>
+          <li><a href="Kuponger & Erbjudanden.html">Kuponger & Erbjudanden</a></li>
+        </ul>
+      </div>
+
+      <div class="info-item">
+        <h2>Kundtjänst</h2>
+        <p>Vänligen kontakta oss om du har några frågor om våra tjänster.</p>
+        <ul>
+          <li><a href="Retur- och återbetalningspolicy.html">Retur- och återbetalningspolicy</a></li>
+          <li><a href="Fraktinformation.html">Fraktinformation</a></li>
+          <li><a href="support.html">Hjälp & Support</a></li>
+          <li><a href="Bibelstudion köpskydd.html">Bibelstudion Köpskydd</a></li>
+        </ul>
+      </div>
+
+      <div class="info-item">
+        <h2>Om Företaget</h2>
+        <p>Här kan du läsa om Bibelstudion, våra värderingar och hur vi arbetar.</p>
+        <ul>
+          <li><a href="om oss.html">Om Bibelstudion</a></li>
+          <li><a href="affiliate.html">Affiliate & Influencer: Tjäna Provision</a></li>
+          <li><a href="karriär.html">Karriär</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .info-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .info-item {
+      flex: 1;
+      min-width: 250px;
+      margin: 15px 0;
+    }
+
+    .info-item h2 {
+      color: #00ff88;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .info-item p {
+      font-size: 0.9em;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .info-item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-item li {
+      margin-bottom: 8px;
+    }
+
+    .info-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9em;
+      transition: color 0.3s ease;
+    }
+
+    .info-item a:hover {
+      color: #00ff88;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .info-container {
+        flex-direction: column;
+      }
+
+      .info-item {
+        text-align: center;
+      }
+
+      .info-item ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+
+  <!-- Resten av innehållet förblir oförändrat -->
+  <section class="footer"
+    style="background-color: #0a0a0a; color: white; padding: 40px 20px; font-family: 'Arial', sans-serif; border-top: 2px solid #00ff88;">
+    <div class="footer-content"
+      style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div class="footer-info">
+        <h3 style="color: #00ff88; margin-bottom: 15px; font-size: 1.2em;">Bibelstudion AB</h3>
+        <p style="margin: 5px 0; font-size: 0.9em;">© 2024 Bibelstudion AB. Alla rättigheter reserverade.</p>
+        <p style="color: #00ff88; margin: 5px 0; font-size: 0.9em; font-weight: 300;">
+          Certifierad partner: <span style="color: #ffffff;">Microsoft Gold Partner | AWS Advanced Tier</span>
+        </p>
+      </div>
+
+      <div class="social-links" style="margin-top: 15px;">
+        <a href="https://www.facebook.com/Bibelstudion.23"
+          style="color: white; margin: 0 10px; font-size: 1.5em; transition: color 0.3s ease; text-decoration: none;">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.tiktok.com/@bibelstudion1"
+          style="color: white; margin: 0 10px; font-size: 1.5em; transition: color 0.3s ease; text-decoration: none;">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://www.linkedin.com/"
+          style="color: white; margin: 0 10px; font-size: 1.5em; transition: color 0.3s ease; text-decoration: none;">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cookie-consent"
+    style="background-color: #0a0a0a; color: white; padding: 10px; font-family: Arial, sans-serif; position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); width: 100%; text-align: center;">
+    <h2 style="color: #00ff88; font-size: 18px; margin-bottom: 5px;">Vi använder webbkakor</h2>
+    <p style="font-size: 12px; line-height: 1.5;">Vi använder webbkakor för din bästa möjliga upplevelse. Läs mer om vår
+      <a href="Våra Regler.html" style="color: #00ff88; text-decoration: underline;">hantering av personuppgifter</a>.
+    </p>
+    <div style="margin-top: 10px; display: flex; justify-content: center; gap: 5px;">
+      <button id="accept-cookies"
+        style="background-color: #00ff88; color: #0a0a0a; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px;">Acceptera</button>
+      <button id="decline-cookies"
+        style="background-color: transparent; color: #00ff88; padding: 5px 10px; border: 1px solid #00ff88; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px;">Avvisa</button>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('accept-cookies').addEventListener('click', function () {
+      document.getElementById('cookie-consent').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'true');
+    });
+
+    document.getElementById('decline-cookies').addEventListener('click', function () {
+      document.getElementById('cookie-consent').style.display = 'none';
+      localStorage.setItem('cookiesAccepted', 'false');
+    });
+
+    window.addEventListener('load', function () {
+      if (localStorage.getItem('cookiesAccepted')) {
+        document.getElementById('cookie-consent').style.display = 'none';
+      }
+    });
+  </script>
+
+  <style>
+    .footer a:hover {
+      color: #00ff88 !important;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links {
+        margin-top: 20px !important;
+      }
+    }
+  </style>
+
+
+</body>
+
+</html>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/67b0bca7fb6773190d790aa1/1ik561s69';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+<!--End of Tawk.to Script-->

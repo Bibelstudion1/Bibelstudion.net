@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordic Digital Solutions - Professionella Webbtjänster</title>
+
+     <!-- Favicon för moderna webbläsare -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png"> <!-- Största favicon -->
+
+<!-- Apple Touch Ikoner för iOS och iPadOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/apple-icon-512x512.png"> <!-- Extra stor Apple-icon -->
+
+<!-- Microsoft Tile Ikon för Windows -->
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+
+<!-- SVG Favicon (För bästa kvalitet på alla skärmar) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- Tema för webbläsare -->
+<meta name="theme-color" content="#ffffff">
+
+
+    <!-- Andra meta-taggar eller länkar till CSS-filer kan placeras här -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+
+        .top-bar {
+            position: sticky;
+            top: 0;
+            background-color: #111111;
+            color: #ffffff;
+            font-size: 0.9rem;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .top-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 25px;
+            font-size: 0.9rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .header {
+            position: sticky;
+            top: 30px;
+            background-color: #000000;
+            padding: 15px 20px;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: #00ff88;
+            font-weight: 700;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin: 0 40px;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px 20px;
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 30px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+
+        .search-bar button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            border: none;
+            color: #000000;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-left: -75px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .user-actions a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .user-actions a:hover {
+            color: #00ff88;
+        }
+
+        .nav-links {
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #2a2a2a;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            background-color: #333333;
+            color: #00ff88;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 0.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #00ff88, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px; /* Adjust height as needed */
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            line-height: 1.5;
+        }
+        
+        footer p:first-child {
+            color: #00ff88; /* Company name color */
+        }
+        
+        footer p:last-child {
+            color: #888888; /* Partner info color */
+        }
+
+        :root {
+            --primary: #00ff88;
+            --background: #1a1a1a;
+            --text: #ffffff;
+            --spacing: 2rem;
+            --radius: 12px;
+        }
+
+    
+
+        .membership-hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: linear-gradient(45deg, rgba(26,26,26,0.9), rgba(26,26,26,0.7)),
+                        url('medlemskap-bg.jpg') center/cover;
+        }
+
+        .tier-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .tier-card {
+            background: #2a2a2a;
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            border: 1px solid #333;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .tier-card.recommended {
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--primary);
+            color: var(--background);
+            padding: 0.5rem 1rem;
+            font-weight: bold;
+            transform: rotate(45deg) translate(25%, -50%);
+            font-size: 0.8rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .benefits-list li i {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: var(--background);
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .tier-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div>
+            <a href="Enterprise Solutions.html">Enterprise Solutions</a>
+            <a href="support.html">Support</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div>
+            <a href="#">+46 764375307</a>
+            <a href="#">info@Bibelstudionab.se</a>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <span>Bibel</span>Studion
+            </a>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Sök efter tjänster eller produkter...">
+            <button>Sök</button>
+        </div>
+
+        <div class="user-actions">
+            <a href="login.html" class="action-link" id="loginToggle">
+                <i class="fas fa-user"></i>
+                <span>Logga in</span>
+            </a>
+
+            <a href="kundvagn.html" class="action-link">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Kundvagn</span>
+            </a>
+        </div>
+
+
+
+        
+        <style>
+        .user-actions {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .action-link {
+            color: #00ff88;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        
+        .action-link:hover {
+            background-color: rgba(0, 255, 136, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .action-link i {
+            font-size: 1.2em;
+        }
+        
+        /* Responsiv design */
+        @media (max-width: 768px) {
+            .user-actions {
+                gap: 15px;
+            }
+            
+            .action-link span {
+                display: none;
+            }
+            
+            .action-link i {
+                font-size: 1.5em;
+            }
+        }
+        </style>
+        
+        <!-- Lägg till Font Awesome i headern -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<!-- Login Modal -->
+<div class="login-modal" id="loginModal">
+    <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        
+        <div class="auth-container">
+            <div class="auth-header">
+                <i class="fas fa-user-shield main-icon"></i>
+                <h2>Välkommen tillbaka</h2>
+            </div>
+
+            <form id="loginForm" class="auth-form">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="E-postadress" required>
+                    <i class="fas fa-envelope input-icon"></i>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Lösenord" required>
+                    <i class="fas fa-lock input-icon"></i>
+                    <button type="button" class="password-toggle">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <button type="submit" class="auth-btn">
+                    <span class="btn-text">Logga in</span>
+                    <div class="loading-dots"></div>
+                </button>
+
+                <div class="auth-footer">
+                    <p>Ny hos oss? <a href="#" class="register-link">Skapa konto</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modal Design */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #00ff88;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.login-modal.active {
+    display: flex;
+    animation: modalFadeIn 0.3s forwards;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+input {
+    width: 90%;
+    padding: 12px 40px 12px 15px;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #00ff88;
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background: #00ff88;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #00ff88;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+</style>
+
+<script>
+// Modal Toggle
+const loginModal = document.getElementById('loginModal');
+const loginToggle = document.getElementById('loginToggle');
+
+loginToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginModal.classList.toggle('active');
+    document.body.style.overflow = loginModal.classList.contains('active') ? 'hidden' : 'auto';
+});
+
+// Close Modal
+document.addEventListener('click', (e) => {
+    if (e.target === loginModal || e.target.closest('.close-modal')) {
+        loginModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Password Toggle
+document.querySelectorAll('.password-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const input = button.previousElementSibling;
+        input.type = input.type === 'password' ? 'text' : 'password';
+        button.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+});
+
+// Form Handling
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    
+    btn.disabled = true;
+    btn.classList.add('loading');
+
+    // Simulerat API-anrop
+    setTimeout(() => {
+        btn.disabled = false;
+        btn.classList.remove('loading');
+        loginModal.classList.remove('active');
+        // Uppdatera användargränssnittet här efter lyckad inloggning
+        document.querySelector('.user-actions').innerHTML = `
+            <div class="user-profile">
+                <i class="fas fa-user-check"></i>
+                <span>Mitt Konto</span>
+            </div>
+        `;
+    }, 1500);
+});
+
+// ESC Key to Close
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && loginModal.classList.contains('active')) {
+        loginModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>
+
+
+
+    </header>
+
+    <nav class="nav-links">
+        <a href="index.html">Hem</a>
+        <a href="kundcase.html">Kundcase</a>
+        <a href="om oss.html">Om oss</a>
+        <a href="karriär.html">Karriär</a>
+        <a href="nyhetsbrev.html">Nyhetsbrev</a>
+        <a href="Fritid.html">Butik</a>
+        <a href="medlemskap.html">Medlemskap</a>
+        <a href="gava.html">Ge en Gåva</a>
+        <a href="bible.html">Bibel</a>
+        <a href="vara-tjanster.html">Tjänster</a>
+    </nav>
+</section>
+
+
+<section style="background-color: #0a0a0a; color: white; padding: 100px 20px; text-align: center; font-family: 'Inter', Arial, sans-serif;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <!-- Rubrik och introduktion -->
+      <header style="margin-bottom: 80px;">
+        <h2 style="color: #2ECC71; font-size: 52px; font-weight: 700; margin: 0; text-transform: uppercase; letter-spacing: 3px;">
+          Bli Medlem
+        </h2>
+        <p style="font-size: 24px; margin-top: 25px; color: #b3b3b3; line-height: 1.5;">
+          Exklusiva förmåner, premium rabatter och förtur till nya produkter
+        </p>
+      </header>
+  
+      <!-- Medlemsnivåer -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin: 0 auto 100px;">
+        <!-- Basic Card -->
+        <a href="#basic" style="text-decoration: none; color: inherit;">
+          <div style="background: linear-gradient(145deg, #111111, #0a0a0a); padding: 50px 40px; border-radius: 16px; transition: all 0.3s ease; position: relative; overflow: hidden; border: 1px solid #2ECC7133;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #2ECC71;"></div>
+            <h3 style="color: #2ECC71; font-size: 34px; font-weight: 700; margin-bottom: 25px;">Basic</h3>
+            <p style="font-size: 28px; font-weight: 600; margin-bottom: 30px; color: #2ECC71;">Gratis</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 35px; text-align: left;">
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Nyhetsbrev
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> 5% rabatt på första köp
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Produktuppdateringar
+              </li>
+            </ul>
+            <div style="background: #2ECC71; color: #0a0a0a; padding: 16px 40px; font-size: 18px; font-weight: 700; border-radius: 8px; transition: all 0.3s ease; border: 2px solid #2ECC71;">
+              Bli Medlem
+            </div>
+          </div>
+        </a>
+  
+        <!-- Pro Card -->
+        <a href="#pro" style="text-decoration: none; color: inherit;">
+          <div style="background: linear-gradient(145deg, #111111, #0a0a0a); padding: 50px 40px; border-radius: 16px; transition: all 0.3s ease; position: relative; overflow: hidden; border: 1px solid #2ECC7133;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #2ECC71;"></div>
+            <h3 style="color: #2ECC71; font-size: 34px; font-weight: 700; margin-bottom: 25px;">Pro</h3>
+            <p style="font-size: 28px; font-weight: 600; margin-bottom: 30px; color: #2ECC71;">299 kr/mån</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 35px; text-align: left;">
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Allt i Basic +
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> 15% rabatt på alla köp
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Tidig tillgång till reor
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Gratis frakt
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Personlig shopper
+              </li>
+            </ul>
+            <div style="background: #2ECC71; color: #0a0a0a; padding: 16px 40px; font-size: 18px; font-weight: 700; border-radius: 8px; transition: all 0.3s ease; border: 2px solid #2ECC71;">
+              Välj Pro
+            </div>
+          </div>
+        </a>
+  
+        <!-- Premium Card -->
+        <a href="#premium" style="text-decoration: none; color: inherit;">
+          <div style="background: linear-gradient(145deg, #111111, #0a0a0a); padding: 50px 40px; border-radius: 16px; transition: all 0.3s ease; position: relative; overflow: hidden; border: 1px solid #2ECC7133;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #2ECC71;"></div>
+            <h3 style="color: #2ECC71; font-size: 34px; font-weight: 700; margin-bottom: 25px;">Premium</h3>
+            <p style="font-size: 28px; font-weight: 600; margin-bottom: 30px; color: #2ECC71;">599 kr/mån</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 35px; text-align: left;">
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Allt i Pro +
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> 25% rabatt på alla köp
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Exklusiva event
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Premium support
+              </li>
+              <li style="font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; color: #e6e6e6;">
+                <span style="color: #2ECC71; margin-right: 12px; font-size: 24px;">✓</span> Gratis returer
+              </li>
+            </ul>
+            <div style="background: #2ECC71; color: #0a0a0a; padding: 16px 40px; font-size: 18px; font-weight: 700; border-radius: 8px; transition: all 0.3s ease; border: 2px solid #2ECC71;">
+              Välj Premium
+            </div>
+          </div>
+        </a>
+      </div>
+  
+      <!-- Medlemsförmåner -->
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #2ECC71; font-size: 40px; font-weight: 700; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px;">
+          Medlemsförmåner
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+          <!-- Fördelar -->
+          <a href="#exklusiva-erbjudanden" style="text-decoration: none; color: inherit;">
+            <div style="background: #111111; padding: 40px; border-radius: 12px; text-align: left; transition: all 0.3s ease; border: 1px solid #2ECC7133;">
+              <div style="width: 60px; height: 60px; background: #2ECC71; border-radius: 8px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #0a0a0a; font-size: 28px;">★</span>
+              </div>
+              <h3 style="color: #2ECC71; font-size: 24px; font-weight: 600; margin-bottom: 15px;">Erbjudanden</h3>
+              <p style="font-size: 17px; line-height: 1.6; color: #b3b3b3;">
+                Specialerbjudanden tillgängliga för våra medlemmar
+              </p>
+            </div>
+          </a>
+          
+          <a href="#tidig-tillgang" style="text-decoration: none; color: inherit;">
+            <div style="background: #111111; padding: 40px; border-radius: 12px; text-align: left; transition: all 0.3s ease; border: 1px solid #2ECC7133;">
+              <div style="width: 60px; height: 60px; background: #2ECC71; border-radius: 8px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #0a0a0a; font-size: 28px;">⏳</span>
+              </div>
+              <h3 style="color: #2ECC71; font-size: 24px; font-weight: 600; margin-bottom: 15px;">Tidig Tillgång</h3>
+              <p style="font-size: 17px; line-height: 1.6; color: #b3b3b3;">
+                Förtur till nya produkter 48 timmar innan allmän release
+              </p>
+            </div>
+          </a>
+          
+          <a href="#premium-beloningar" style="text-decoration: none; color: inherit;">
+            <div style="background: #111111; padding: 40px; border-radius: 12px; text-align: left; transition: all 0.3s ease; border: 1px solid #2ECC7133;">
+              <div style="width: 60px; height: 60px; background: #2ECC71; border-radius: 8px; margin-bottom: 25px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #0a0a0a; font-size: 28px;">💎</span>
+              </div>
+              <h3 style="color: #2ECC71; font-size: 24px; font-weight: 600; margin-bottom: 15px;">Premium Belöningar</h3>
+              <p style="font-size: 17px; line-height: 1.6; color: #b3b3b3;">
+                Tjäna och lös in premiumbelöningar vid varje köp
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    @media (max-width: 1200px) {
+      section > div > div:first-child {
+        grid-template-columns: 1fr;
+      }
+    }
+  
+    a > div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15);
+      border-color: #2ECC71;
+    }
+  
+    a > div > div:last-child:hover {
+      background: #0a0a0a;
+      color: #2ECC71;
+      transform: scale(1.02);
+    }
+  
+    a > div {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  </style>
+
+    <footer>
+        <div class="info-container">
+            <div class="info-item">
+                <h2>Följ Bibelstudion</h2>
+                <p>Följ oss på sociala medier för senaste nyheter och erbjudanden.</p>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <a class="AppLink_AppLink__uXETs" href="https://apps.apple.com/us/app/mathem/id1076840480?ign-itscg=30200&amp;ign-itsct=apps_box_badge"><img class="k-image" width="139" height="50" loading="lazy" decoding="async" alt="App store badge" src="https://cdn.sanity.io/images/1teetjp9/production/d06e2189e4d6f74d74fb05c26c47efb1a1117967-120x40.svg"></a>
+                    <a class="AppLink_AppLink__uXETs" href="https://play.google.com/store/apps/details?id=se.mathem.mathem&amp;pcampaignid=web_share"><img class="k-image" width="139" height="50" loading="lazy" decoding="async" alt="Google play badge" src="https://cdn.sanity.io/images/1teetjp9/production/b46ac873f892190c97f30eed0e1042a585f6c813-646x250.png"></a>
+                </ul>
+            </div>
+    
+            <div class="info-item">
+                <h2>Ladda ner</h2>
+                <p>Få tillgång till exklusiva erbjudanden och spåra dina beställningar via vår app.</p>
+                <ul>
+                    <li><a href="#">Prisvarningar</a></li>
+                    <li><a href="#">Varningar om låga lagervaror</a></li>
+                    <li><a href="#">Kuponger & Erbjudanden</a></li>
+                </ul>
+            </div>
+    
+            <div class="info-item">
+                <h2>Kundtjänst</h2>
+                <p>Vänligen kontakta oss om du har några frågor om våra tjänster.</p>
+                <ul>
+                    <li><a href="#">Retur- och återbetalningspolicy</a></li>
+                    <li><a href="#">Fraktinformation</a></li>
+                    <li><a href="#">Hjälp & Support</a></li>
+                    <li><a href="#">Bibelstudion Köpskydd</a></li>
+                </ul>
+            </div>
+    
+            <div class="info-item">
+                <h2>Om Företaget</h2>
+                <p>Här kan du läsa om Bibelstudion, våra värderingar och hur vi arbetar.</p>
+                <ul>
+                    <li><a href="#">Om Bibelstudion</a></li>
+                    <li><a href="#">Affiliate & Influencer: Tjäna Provision</a></li>
+                    <li><a href="#">Karriär</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+    footer {
+        background-color: #1a1a1a;
+        color: white;
+        padding: 40px 20px;
+        font-family: Arial, sans-serif;
+    }
+    
+    .info-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    
+    .info-item {
+        flex: 1;
+        min-width: 250px;
+        margin: 15px 0;
+    }
+    
+    .info-item h2 {
+        color: #00ff88;
+        font-size: 1.2em;
+        margin-bottom: 15px;
+    }
+    
+    .info-item p {
+        font-size: 0.9em;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        opacity: 0.9;
+    }
+    
+    .info-item ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .info-item li {
+        margin-bottom: 8px;
+    }
+    
+    .info-item a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9em;
+        transition: color 0.3s ease;
+    }
+    
+    .info-item a:hover {
+        color: #00ff88;
+        text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+        .info-container {
+            flex-direction: column;
+        }
+        
+        .info-item {
+            text-align: center;
+        }
+        
+        .info-item ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    </style>
+
+    <!-- Resten av innehållet förblir oförändrat -->
+    <section class="footer" style="background-color: #0a0a0a; color: white; padding: 40px 20px; font-family: 'Arial', sans-serif; border-top: 2px solid #00ff88;">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div class="footer-info">
+                <h3 style="color: #00ff88; margin-bottom: 15px; font-size: 1.2em;">Bibelstudion AB</h3>
+                <p style="margin: 5px 0; font-size: 0.9em;">© 2024 Bibelstudion AB. Alla rättigheter reserverade.</p>
+                <p style="color: #00ff88; margin: 5px 0; font-size: 0.9em; font-weight: 300;">
+                    Certifierad partner: <span style="color: #ffffff;">Microsoft Gold Partner | AWS Advanced Tier</span>
+                </p>
+            </div>
+            
+            <div class="social-links" style="margin-top: 15px;">
+                <a href="https://www.facebook.com/Bibelstudion.23" style="color: white; margin: 0 10px; font-size: 1.5em; transition: color 0.3s ease; text-decoration: none;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.tiktok.com/@bibelstudion1" style="color: white; margin: 0 10px; font-size: 1.5em; transition: color 0.3s ease; text-decoration: none;">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.linkedin.com/" style="color: white; margin: 0 10px; font-size: 1.5em; transition: color 0.3s ease; text-decoration: none;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+  
+    
+    <style>
+        .footer a:hover {
+            color: #00ff88 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-links {
+                margin-top: 20px !important;
+            }
+        }
+    </style>
+</body>
+</html>
+
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 18709299;
+    (function (n, t, c) { function i(n) { return e._h ? e._h.apply(null, n) : e._q.push(n) } var e = { _q: [], _h: null, _v: "2.0", on: function () { i(["on", c.call(arguments)]) }, once: function () { i(["once", c.call(arguments)]) }, off: function () { i(["off", c.call(arguments)]) }, get: function () { if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load."); return i(["get", c.call(arguments)]) }, call: function () { i(["call", c.call(arguments)]) }, init: function () { var n = t.createElement("script"); n.async = !0, n.src = "https://cdn.livechatinc.com/tracking.js", t.head.appendChild(n) } }; !n.__lc.asyncInit && e.init(), n.LiveChatWidget = n.LiveChatWidget || e }(window, document, [].slice))
+</script>
+</div>
+
+
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/67b0bca7fb6773190d790aa1/1ik561s69';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->

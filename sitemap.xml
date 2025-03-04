@@ -2,229 +2,161 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Startsida -->
   <url>
-    <loc>https://bibelstudion.se/</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Om oss -->
+  <!-- Allmänna sidor -->
   <url>
-    <loc>https://bibelstudion.se/om-oss.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/om oss.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Kontakt -->
   <url>
-    <loc>https://bibelstudion.se/kontakt.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/kontakt.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Bibelstudier -->
   <url>
-    <loc>https://bibelstudion.se/bibel.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/karriar.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/nyhetsbrev.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Bibelrelaterade sidor -->
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/bibel.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Matematik -->
   <url>
-    <loc>https://bibelstudion.se/matematik.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/bible.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/bibelstudion.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Butik och medlemskap -->
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/butik.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/medlemskap.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/premium.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Karriär -->
+  <!-- Skola och utbildning -->
   <url>
-    <loc>https://bibelstudion.se/karriar.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/skolan.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/matematik.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/studier.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Support och policy -->
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/support.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/retur-och-aterbetalningspolicy.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Nyhetsbrev -->
   <url>
-    <loc>https://bibelstudion.se/nyhetsbrev.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Butik -->
-  <url>
-    <loc>https://bibelstudion.se/butik.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Medlemskap -->
-  <url>
-    <loc>https://bibelstudion.se/medlemskap.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Skolan -->
-  <url>
-    <loc>https://bibelstudion.se/skolan.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Ge en Gåva -->
-  <url>
-    <loc>https://bibelstudion.se/gava.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/fraktinformation.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- Affiliate-program -->
   <url>
-    <loc>https://bibelstudion.se/affiliate.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/anvandarvillkor.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Vanliga frågor (FAQ) -->
-  <url>
-    <loc>https://bibelstudion.se/vanliga.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Retur- och återbetalningspolicy -->
-  <url>
-    <loc>https://bibelstudion.se/retur-och-aterbetalningspolicy.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Fraktinformation -->
-  <url>
-    <loc>https://bibelstudion.se/fraktinformation.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Våra Regler -->
-  <url>
-    <loc>https://bibelstudion.se/vara-regler.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Användarvillkor -->
-  <url>
-    <loc>https://bibelstudion.se/anvandarvillkor.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <!-- Support -->
-  <url>
-    <loc>https://bibelstudion.se/support.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Blogg -->
-  <url>
-    <loc>https://bibelstudion.se/blogg.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Podcast -->
-  <url>
-    <loc>https://bibelstudion.se/podcast.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Workshop -->
-  <url>
-    <loc>https://bibelstudion.se/workshop.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Studieportal -->
-  <url>
-    <loc>https://bibelstudion.se/studieportal.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Nationella prov -->
-  <url>
-    <loc>https://bibelstudion.se/nationella-prov.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Studieplanering -->
-  <url>
-    <loc>https://bibelstudion.se/studieplanering.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Matematikträning -->
-  <url>
-    <loc>https://bibelstudion.se/matematiktraining.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Kemiquiz -->
-  <url>
-    <loc>https://bibelstudion.se/kemiquiz.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Sociala medier -->
   <url>
-    <loc>https://bibelstudion.se/facebook.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/facebook.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://bibelstudion.se/tiktok.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/tiktok.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://bibelstudion.se/youtube.html</loc>
+    <loc>https://darling-cat-bdedea.netlify.app/youtube.html</loc>
     <lastmod>2024-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+
+  <!-- Ytterligare sidor -->
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/gava.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/affiliate.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://darling-cat-bdedea.netlify.app/vanliga.html</loc>
+    <lastmod>2024-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

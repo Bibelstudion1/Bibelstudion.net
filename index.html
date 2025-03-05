@@ -1085,11 +1085,17 @@
 
     <div class="nyheter-container">
       <h2 class="nyheter-rubrik">Senaste Nyheterna</h2>
-
       <div class="nyheter-grid">
         <!-- Nyhetskort 1 -->
         <article class="nyhetskort">
-          <img src="image/image.png" alt="Bibelstudiebild" class="nyhetsbild">
+          <!-- Bild med responsivt srcset, alt-taggar och lazy loading -->
+          <img 
+            src="image/jesus-bergspredikan.jpg" 
+            alt="Bibelstudiebild: Nytt studiepaket om Jesus Bergspredikan, Matteus 5-7" 
+            class="nyhetsbild" 
+            srcset="image/jesus-bergspredikan-320w.jpg 320w, image/jesus-bergspredikan-480w.jpg 480w, image/jesus-bergspredikan-800w.jpg 800w"
+            sizes="(max-width: 600px) 100vw, 800px"
+            loading="lazy">
           <div class="nyhetsinnehåll">
             <div class="nyhetskategori">Bibelstudier</div>
             <div class="nyhetsdatum">15 Maj 2025</div>
@@ -1098,6 +1104,8 @@
             <a href="#" class="läs-mer">Läs mer →</a>
           </div>
         </article>
+      </div>
+    </div>    
 
         <!-- Nyhetskort 2 -->
         <article class="nyhetskort">

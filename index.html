@@ -293,6 +293,15 @@
 </head>
 <body>
 
+  <script type="module" src="firebase.js"></script>
+<script type="module">
+  import { addComment } from "./firebase.js";
+
+  // Testa att lägga till en kommentar
+  addComment("Maki", "Det här är en testkommentar!");
+</script>
+
+
   <div class="top-bar">
     <div>
       <a href="Enterprise Solutions.html">Enterprise Solutions</a>

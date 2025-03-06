@@ -4,8 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://bibelstudion.netlify.app/</loc>
@@ -13,7 +11,7 @@
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/enterprise%20solutions</loc>
+  <loc>https://bibelstudion.netlify.app/enterprise-solutions</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -38,12 +36,12 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/om%20oss.html</loc>
+  <loc>https://bibelstudion.netlify.app/om-oss.html</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/karri%C3%A4r.html</loc>
+  <loc>https://bibelstudion.netlify.app/karriar.html</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -53,32 +51,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/fritid</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
   <loc>https://bibelstudion.netlify.app/medlemskap</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/skolan</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/gava</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/bible</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/5%20stj%C3%A4rnor.html</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -93,17 +66,17 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/varningar%20om%20l%C3%A5ga%20lagervaror</loc>
+  <loc>https://bibelstudion.netlify.app/varningar-om-laga-lagervaror</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/kuponger%20&amp;%20erbjudanden</loc>
+  <loc>https://bibelstudion.netlify.app/kuponger-och-erbjudanden</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/retur-%20och%20%C3%A5terbetalningspolicy</loc>
+  <loc>https://bibelstudion.netlify.app/retur-och-aterbetalningspolicy</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -113,7 +86,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/bibelstudion%20k%C3%B6pskydd</loc>
+  <loc>https://bibelstudion.netlify.app/bibelstudion-kopskydd</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -123,19 +96,9 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/v%C3%A5ra%20regler</loc>
+  <loc>https://bibelstudion.netlify.app/vara-regler</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/kundcase</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/vanliga</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://bibelstudion.netlify.app/matematik</loc>
@@ -143,50 +106,28 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/tal%20och%20algebra</loc>
+  <loc>https://bibelstudion.netlify.app/tal-och-algebra</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/uttryck%20med%20variabler</loc>
+  <loc>https://bibelstudion.netlify.app/algebraiska-uttryck</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/algebraiska%20uttryck</loc>
+  <loc>https://bibelstudion.netlify.app/ekvationer-ii</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/r%C3%A4tt.html</loc>
+  <loc>https://bibelstudion.netlify.app/grafisk-metod</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://bibelstudion.netlify.app/ekvationer%20(ii)</loc>
+  <loc>https://bibelstudion.netlify.app/ersattningsmetoden</loc>
   <lastmod>2025-03-06T21:35:19+00:00</lastmod>
   <priority>0.41</priority>
 </url>
-<url>
-  <loc>https://bibelstudion.netlify.app/teckna%20uttryck%20med%20procent</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/proportion</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/grafisk%20metod</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://bibelstudion.netlify.app/ers%C3%A4ttningsmetoden</loc>
-  <lastmod>2025-03-06T21:35:19+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-
-
 </urlset>

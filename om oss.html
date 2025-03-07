@@ -434,38 +434,623 @@
 
 
 <body>
+   
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W8GKTSM8"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <script type="module" src="firebase.js"></script>
+  <script type="module">
+    import { addComment } from "./firebase.js";
+  
+    // Testa att lägga till en kommentar
+    addComment("Maki", "Det här är en testkommentar!");
+  </script>
+  
+  
     <div class="top-bar">
-        <div>
-            <a href="Enterprise Solutions.html">Enterprise Solutions</a>
-            <a href="support.html">Support</a>
-            <a href="kontakt.html">Kontakt</a>
-        </div>
-        <div>
-            <a href="#">+46 8 123 456 78</a>
-            <a href="#">info@nordicdigital.se</a>
-        </div>
+      <div>
+        <a href="Enterprise Solutions.html">Enterprise Solutions</a>
+        <a href="support.html">Support</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div>
+        <a href="#">+46 764375307</a>
+        <a href="Bibelstudion.html">info@Bibelstudionab.se</a>
+      </div>
     </div>
     <header class="header">
-        <div class="logo">
-            <a href="index.html" style="text-decoration: none; color: inherit;" title="Bibelstudion - Andliga resurscenter för bibelstudier">
-                <span>Bibel</span>studion
-            </a>
-            <!-- Use a descriptive alt text and optimize image for SEO -->
-            <img src="https://daniel.feldroy.com/public/images/super_octo.png" 
-                 alt="Bibelstudion AB:s rosa maskot – en glad bläckfisk med lila cape, symbol för innovation och andlig vägledning" 
-                 style="height: 40px; margin-left: 10px;" 
-                 loading="lazy">
+      <div class="logo">
+          <a href="index.html" style="text-decoration: none; color: inherit;" title="Bibelstudion - Andliga resurscenter för bibelstudier">
+              <span>Bibel</span>studion
+          </a>
+          <!-- Use a descriptive alt text and optimize image for SEO -->
+          <img src="https://daniel.feldroy.com/public/images/super_octo.png" 
+               alt="Bibelstudion AB:s rosa maskot – en glad bläckfisk med lila cape, symbol för innovation och andlig vägledning" 
+               style="height: 40px; margin-left: 10px;" 
+               loading="lazy">
+      </div>
+  
+      <div class="search-bar">
+        <input type="text" placeholder="Sök efter tjänster eller produkter...">
+        <button>Sök</button>
+      </div>
+      <div class="user-actions">
+        <a href="login.html" class="action-link" id="loginToggle">
+          <i class="fas fa-user"></i>
+          <span>Logga in</span>
+        </a>
+  
+        <section style="color: white; background: #0a0a0a; padding: 10px; position: relative;">
+          <div style="display: flex; align-items: center; gap: 10px; cursor: pointer;" onclick="toggleWishlistPopup()">
+            <svg width="24" height="24" fill="#ffffff" viewBox="0 0 24 24" aria-hidden="true">
+              <title>Hjärta ikon</title>
+              <path
+                d="M21.18 13.726c-.02.02-.036.04-.055.055l.012-.008a.172.172 0 0 1-.028.024c-1.458 1.435-7.847 7.413-8.102 7.649a1.43 1.43 0 0 1-1.013.411 1.43 1.43 0 0 1-.997-.396L2.89 13.805l-.032-.028-.063-.063-.06-.066A6.247 6.247 0 0 1 1 9.324c0-3.482 2.873-6.316 6.405-6.316 1.76 0 3.397.694 4.589 1.91A6.414 6.414 0 0 1 16.595 3C20.123 3 23 5.834 23 9.316a6.231 6.231 0 0 1-1.82 4.41zm-4.585-9.758a5.44 5.44 0 0 0-4.597 2.513 5.437 5.437 0 0 0-4.593-2.505c-2.996 0-5.424 2.396-5.424 5.348 0 1.438.577 2.74 1.514 3.7h-.004l.064.063a.329.329 0 0 1 .032.035l8.09 7.637a.459.459 0 0 0 .639 0s6.667-6.237 8.11-7.66h.003c.004-.008.016-.016.02-.024a5.292 5.292 0 0 0 1.566-3.76c0-2.951-2.428-5.347-5.42-5.347zM7.413 6.18c-1.808 0-3.278 1.451-3.278 3.235a.486.486 0 0 1-.493.482.489.489 0 0 1-.492-.482c0-2.321 1.915-4.207 4.263-4.207a.49.49 0 0 1 .493.486.49.49 0 0 1-.493.486z">
+              </path>
+            </svg>
+          </div>
+        </section>
+  
+        <a href="kundvagn.html" class="action-link">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Kundvagn</span>
+        </a>
+      </div>
+  
+      <style>
+        .user-actions {
+          display: flex;
+          gap: 25px;
+          align-items: center;
+        }
+  
+        .action-link {
+          color: #00ff88;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.3s ease;
+          padding: 10px 15px;
+          border-radius: 5px;
+        }
+  
+        .action-link:hover {
+          background-color: rgba(0, 255, 136, 0.1);
+          transform: translateY(-2px);
+        }
+  
+        .action-link i {
+          font-size: 1.2em;
+        }
+  
+        /* Responsiv design */
+        @media (max-width: 768px) {
+          .user-actions {
+            gap: 15px;
+          }
+  
+          .action-link span {
+            display: none;
+          }
+  
+          .action-link i {
+            font-size: 1.5em;
+          }
+        }
+      </style>
+  
+      <!-- Lägg till Font Awesome i headern -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  
+      <!-- Login Modal -->
+      <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+          <button class="close-modal">&times;</button>
+  
+          <div class="auth-container">
+            <div class="auth-header">
+              <i class="fas fa-user-shield main-icon"></i>
+              <h2>Välkommen tillbaka</h2>
+            </div>
+  
+            <form id="loginForm" class="auth-form">
+              <div class="input-group">
+                <input type="email" id="email" placeholder="E-postadress" required>
+                <i class="fas fa-envelope input-icon"></i>
+              </div>
+  
+              <div class="input-group">
+                <input type="password" id="password" placeholder="Lösenord" required>
+                <i class="fas fa-lock input-icon"></i>
+                <button type="button" class="password-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+  
+              <button type="submit" class="auth-btn">
+                <span class="btn-text">Logga in</span>
+                <div class="loading-dots"></div>
+              </button>
+  
+              <div class="auth-footer">
+                <p>Ny hos oss? <a href="#" class="register-link">Skapa konto</a></p>
+              </div>
+            </form>
+          </div>
         </div>
-        
-        <div class="search-bar">
-            <input type="text" placeholder="Sök efter tjänster eller produkter...">
-            <button>Sök</button>
+      </div>
+  
+      <style>
+        /* Modal Design */
+        .login-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(26, 26, 26, 0.95);
+          z-index: 1000;
+          justify-content: center;
+          align-items: center;
+          backdrop-filter: blur(5px);
+        }
+  
+        .modal-content {
+          background: #1a1a1a;
+          padding: 2rem;
+          border-radius: 12px;
+          border: 1px solid #00ff88;
+          width: 90%;
+          max-width: 400px;
+          position: relative;
+          transform: scale(0.95);
+          transition: transform 0.3s ease;
+        }
+  
+        .login-modal.active {
+          display: flex;
+          animation: modalFadeIn 0.3s forwards;
+        }
+  
+        @keyframes modalFadeIn {
+          from {
+            opacity: 0;
+          }
+  
+          to {
+            opacity: 1;
+          }
+        }
+  
+        /* Input Fields */
+        .input-group {
+          position: relative;
+          margin: 1.5rem 0;
+        }
+  
+        input {
+          width: 90%;
+          padding: 12px 40px 12px 15px;
+          background: #2a2a2a;
+          border: 1px solid #333;
+          border-radius: 8px;
+          color: white;
+          transition: all 0.3s ease;
+        }
+  
+        input:focus {
+          border-color: #00ff88;
+          box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+  
+        .input-icon {
+          position: absolute;
+          right: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666;
+        }
+  
+        .auth-btn {
+          width: 100%;
+          padding: 15px;
+          background: #00ff88;
+          color: #1a1a1a;
+          border: none;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 1rem;
+          transition: all 0.3s ease;
+        }
+  
+        .auth-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+  
+        .close-modal {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          color: #00ff88;
+          font-size: 1.5rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+      </style>
+  
+      <script>
+        // Modal Toggle
+        const loginModal = document.getElementById('loginModal');
+        const loginToggle = document.getElementById('loginToggle');
+  
+        loginToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          loginModal.classList.toggle('active');
+          document.body.style.overflow = loginModal.classList.contains('active') ? 'hidden' : 'auto';
+        });
+  
+        // Close Modal
+        document.addEventListener('click', (e) => {
+          if (e.target === loginModal || e.target.closest('.close-modal')) {
+            loginModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+  
+        // Password Toggle
+        document.querySelectorAll('.password-toggle').forEach(button => {
+          button.addEventListener('click', () => {
+            const input = button.previousElementSibling;
+            input.type = input.type === 'password' ? 'text' : 'password';
+            button.querySelector('i').classList.toggle('fa-eye-slash');
+          });
+        });
+  
+        // Form Handling
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = e.target.querySelector('button[type="submit"]');
+  
+          btn.disabled = true;
+          btn.classList.add('loading');
+  
+          // Simulerat API-anrop
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.classList.remove('loading');
+            loginModal.classList.remove('active');
+            // Uppdatera användargränssnittet här efter lyckad inloggning
+            document.querySelector('.user-actions').innerHTML = `
+              <div class="user-profile">
+                  <i class="fas fa-user-check"></i>
+                  <span>Mitt Konto</span>
+              </div>
+          `;
+          }, 1500);
+        });
+  
+        // ESC Key to Close
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && loginModal.classList.contains('active')) {
+            loginModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      </script>
+  
+  
+      <!-- Knapp för att öppna Skapa Konto-modalen -->
+      <button id="registerToggle"
+        style="margin: 4px; padding: 8px 16px; background: #00ff88; color: #1a1a1a; border: none; border-radius: 5px; cursor: pointer;">
+        Registrera
+      </button>
+  
+      <!-- Skapa Konto Modal -->
+      <div class="register-modal" id="registerModal">
+        <div class="modal-content">
+          <button class="close-modal">&times;</button>
+  
+          <div class="auth-container">
+            <div class="auth-header">
+              <i class="fas fa-user-plus main-icon"></i>
+              <h2>Skapa ett konto</h2>
+              <p>Bli en del av vår community</p>
+            </div>
+  
+            <form id="registerForm" class="auth-form">
+              <div class="input-group">
+                <input type="text" id="fullName" placeholder="Fullständigt namn" required>
+                <i class="fas fa-user input-icon"></i>
+              </div>
+  
+              <div class="input-group">
+                <input type="email" id="registerEmail" placeholder="E-postadress" required>
+                <i class="fas fa-envelope input-icon"></i>
+              </div>
+  
+              <div class="input-group">
+                <input type="password" id="registerPassword" placeholder="Lösenord" required>
+                <i class="fas fa-lock input-icon"></i>
+                <button type="button" class="password-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+  
+              <div class="input-group">
+                <input type="password" id="confirmPassword" placeholder="Bekräfta lösenord" required>
+                <i class="fas fa-lock input-icon"></i>
+                <button type="button" class="password-toggle">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+  
+              <button type="submit" class="auth-btn">
+                <span class="btn-text">Skapa konto</span>
+                <div class="loading-dots"></div>
+              </button>
+            </form>
+          </div>
         </div>
-
-        <div class="user-actions">
-            <a href="#">Logga in</a>
-            <a href="#">Kundvagn</a>
-        </div>
+      </div>
+  
+      <!-- Font Awesome för ikoner -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+      <style>
+        /* Modal Design */
+        .register-modal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(26, 26, 26, 0.95);
+          z-index: 1000;
+          justify-content: center;
+          align-items: center;
+          backdrop-filter: blur(5px);
+        }
+  
+        .register-modal.active {
+          display: flex;
+          animation: modalFadeIn 0.3s forwards;
+        }
+  
+        @keyframes modalFadeIn {
+          from {
+            opacity: 0;
+          }
+  
+          to {
+            opacity: 1;
+          }
+        }
+  
+        .modal-content {
+          background: #1a1a1a;
+          padding: 1.5rem;
+          border-radius: 8px;
+          border: 1px solid #00ff88;
+          width: 90%;
+          max-width: 350px;
+          position: relative;
+          transform: scale(0.95);
+          transition: transform 0.3s ease;
+        }
+  
+        /* Header */
+        .auth-header {
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+  
+        .auth-header .main-icon {
+          font-size: 2rem;
+          color: #00ff88;
+          margin-bottom: 0.5rem;
+        }
+  
+        .auth-header h2 {
+          color: #00ff88;
+          font-size: 1.5em;
+          margin: 0.5rem 0;
+        }
+  
+        .auth-header p {
+          color: #ccc;
+          font-size: 0.8em;
+        }
+  
+        /* Input Fields */
+        .input-group {
+          position: relative;
+          margin: 1rem 0;
+        }
+  
+        input {
+          width: 90%;
+          padding: 10px 35px 10px 10px;
+          background: #2a2a2a;
+          border: 1px solid #333;
+          border-radius: 6px;
+          color: white;
+          transition: all 0.3s ease;
+        }
+  
+        input:focus {
+          border-color: #00ff88;
+          box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+  
+        .input-icon {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #666;
+        }
+  
+        .password-toggle {
+          position: absolute;
+          right: 35px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: none;
+          border: none;
+          color: #666;
+          cursor: pointer;
+        }
+  
+        /* Submit Button */
+        .auth-btn {
+          width: 100%;
+          padding: 12px;
+          background: #00ff88;
+          color: #1a1a1a;
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+          margin-top: 1rem;
+          transition: all 0.3s ease;
+        }
+  
+        .auth-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+  
+        /* Close Button */
+        .close-modal {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          color: #00ff88;
+          font-size: 1.2rem;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+  
+        /* Loading Animation */
+        .loading-dots {
+          display: none;
+          justify-content: center;
+          gap: 4px;
+          margin-left: 8px;
+        }
+  
+        .loading-dots::after {
+          content: '';
+          width: 6px;
+          height: 6px;
+          background: #1a1a1a;
+          border-radius: 50%;
+          animation: bounce 1s infinite;
+        }
+  
+        .loading-dots::before {
+          content: '';
+          width: 6px;
+          height: 6px;
+          background: #1a1a1a;
+          border-radius: 50%;
+          animation: bounce 1s infinite 0.2s;
+        }
+  
+        .loading-dots span {
+          width: 6px;
+          height: 6px;
+          background: #1a1a1a;
+          border-radius: 50%;
+          animation: bounce 1s infinite 0.4s;
+        }
+  
+        @keyframes bounce {
+  
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+  
+          50% {
+            transform: translateY(-4px);
+          }
+        }
+  
+        .auth-btn.loading .btn-text {
+          display: none;
+        }
+  
+        .auth-btn.loading .loading-dots {
+          display: flex;
+        }
+      </style>
+  
+      <script>
+        // Modal Toggle
+        const registerModal = document.getElementById('registerModal');
+        const registerToggle = document.getElementById('registerToggle');
+  
+        registerToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          registerModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+  
+        // Close Modal
+        document.addEventListener('click', (e) => {
+          if (e.target === registerModal || e.target.closest('.close-modal')) {
+            registerModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+  
+        // Password Toggle
+        document.querySelectorAll('.password-toggle').forEach(button => {
+          button.addEventListener('click', () => {
+            const input = button.previousElementSibling;
+            input.type = input.type === 'password' ? 'text' : 'password';
+            button.querySelector('i').classList.toggle('fa-eye-slash');
+          });
+        });
+  
+        // Form Handling
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = e.target.querySelector('button[type="submit"]');
+  
+          btn.disabled = true;
+          btn.classList.add('loading');
+  
+          // Simulerat API-anrop för registrering
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.classList.remove('loading');
+            registerModal.classList.remove('active');
+            alert('Registrering lyckades! Välkommen.');
+          }, 1500);
+        });
+  
+        // ESC Key to Close
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && registerModal.classList.contains('active')) {
+            registerModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+          }
+        });
+      </script>
+  
+  
     </header>
 
     <nav class="nav-links">

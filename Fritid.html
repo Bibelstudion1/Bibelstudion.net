@@ -560,39 +560,6 @@ document.addEventListener('keydown', (e) => {
         <a href="vara-tjanster.html">Tjänster</a>
     </nav>
 
-
-    <section class="produktgallery">
-        <!-- Filtermeny -->
-        <aside class="filter-sidebar">
-            <h3>Filtrera produkter</h3>
-            <div class="filter-group">
-                <h4>Kategori</h4>
-                <label><input type="checkbox"> Studiebibli</label>
-                <label><input type="checkbox"> Kommentarer</label>
-                <label><input type="checkbox"> Andaktsböcker</label>
-                <label><input type="checkbox"> Översättningar</label>
-            </div>
-            <div class="filter-group">
-                <h4>Format</h4>
-                <label><input type="checkbox"> Inbunden</label>
-                <label><input type="checkbox"> Pocket</label>
-                <label><input type="checkbox"> E-bok</label>
-                <label><input type="checkbox"> Ljudbok</label>
-            </div>
-            <div class="filter-group">
-                <h4>Språk</h4>
-                <label><input type="checkbox"> Svenska</label>
-                <label><input type="checkbox"> Engelska</label>
-                <label><input type="checkbox"> Hebreiska</label>
-                <label><input type="checkbox"> Grekiska</label>
-            </div>
-            <div class="filter-group">
-                <h4>Prisintervall</h4>
-                <input type="range" min="0" max="2000" value="1000" class="pris-reglage">
-                <div class="pris-visning">Upp till: <span>1000 kr</span></div>
-            </div>
-        </aside>
-    
         <script type="text/javascript">
             atOptions = {
                 'key' : '8cb8f3b2b45c8a65b0cfcdf33c1f23c9',
@@ -603,7 +570,59 @@ document.addEventListener('keydown', (e) => {
             };
         </script>
         <script type="text/javascript" src="//unknowndeliquencydeliquencypenthouse.com/8cb8f3b2b45c8a65b0cfcdf33c1f23c9/invoke.js"></script>
-        <!-- Produktkort -->
+        </div>
+</section>
+
+<!-- Produktsektion med filtermeny -->
+<section class="produktgallery">
+    <!-- Filtermeny -->
+    <aside class="filter-sidebar">
+        <h3>Filtrera produkter</h3>
+        <div class="filter-group">
+            <h4>Kategori</h4>
+            <label><input type="checkbox"> Studiebibli</label>
+            <label><input type="checkbox"> Kommentarer</label>
+            <label><input type="checkbox"> Andaktsböcker</label>
+            <label><input type="checkbox"> Översättningar</label>
+        </div>
+        <div class="filter-group">
+            <h4>Format</h4>
+            <label><input type="checkbox"> Inbunden</label>
+            <label><input type="checkbox"> Pocket</label>
+            <label><input type="checkbox"> E-bok</label>
+            <label><input type="checkbox"> Ljudbok</label>
+        </div>
+        <div class="filter-group">
+            <h4>Språk</h4>
+            <label><input type="checkbox"> Svenska</label>
+            <label><input type="checkbox"> Engelska</label>
+            <label><input type="checkbox"> Hebreiska</label>
+            <label><input type="checkbox"> Grekiska</label>
+        </div>
+        <div class="filter-group">
+            <h4>Prisintervall</h4>
+            <input type="range" min="0" max="2000" value="1000" class="pris-reglage">
+            <div class="pris-visning">Upp till: <span>1000 kr</span></div>
+        </div>
+    </aside>
+
+    <!-- Höger sektion för annons och produktgrid -->
+    <div class="right-section">
+        <!-- Annonsbanner -->
+        <div class="annons-container-right">
+            <script type="text/javascript"> 
+                atOptions = {
+                    'key' : '8cb8f3b2b45c8a65b0cfcdf33c1f23c9',
+                    'format' : 'iframe',
+                    'height' : 90,
+                    'width' : 728,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//unknowndeliquencydeliquencypenthouse.com/8cb8f3b2b45c8a65b0cfcdf33c1f23c9/invoke.js"></script>
+        </div>
+
+        <!-- Produktgrid -->
         <div class="produkt-grid">
             <!-- Produkt 1 -->
             <article class="produkt-kort">
@@ -617,7 +636,7 @@ document.addEventListener('keydown', (e) => {
                 </div>
                 <div class="tillgänglighet">I lager</div>
             </article>
-    
+
             <!-- Produkt 2 -->
             <article class="produkt-kort">
                 <img src="https://th.bing.com/th/id/R.ee81595bc83658a0ba3d83af5420ba5e?rik=U84myOmTh%2fomgw&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f60000%2fvelka%2fbible-open-to-psalm-118-1378400894gXP.jpg&ehk=kvZTgG800JO2%2bpeUjRZYApzq%2bXVmggSGjoINl5M4%2f4U%3d&risl=&pid=ImgRaw&r=0">
@@ -629,7 +648,7 @@ document.addEventListener('keydown', (e) => {
                 </div>
                 <div class="tillgänglighet">Finns i butik</div>
             </article>
-    
+
             <!-- Produkt 3 -->
             <article class="produkt-kort">
                 <div class="erbjudande-ribbon">Erbjudande</div>
@@ -643,26 +662,49 @@ document.addEventListener('keydown', (e) => {
                 <div class="tillgänglighet">I lager</div>
             </article>
 
-             <!-- Produkt 3 -->
-             <article class="produkt-kort">
+            <!-- Produkt 4 -->
+            <article class="produkt-kort">
                 <div class="erbjudande-ribbon">Erbjudande</div>
                 <img src="image/Web-designers.png" alt="Bibelkommentar">
                 <h3>Bibelstudion premium</h3>
-                <p class="beskrivning">Bibelstudion Premium ger fördjupade studier, videolektioner, forum och andakter.
-                </p>
+                <p class="beskrivning">Bibelstudion Premium ger fördjupade studier, videolektioner, forum och andakter.</p>
                 <div class="produkt-detaljer">
                     <span class="pris">50,00 kr/månad</span>
                     <button class="cta-knapp">Lägg till</button>
                 </div>
             </article>
-    
-    
-            <!-- Fler produkter kan läggas till här -->
         </div>
-    </section>
-    
-    <style>
-    /* Globala stilar för sektionen */
+    </div>
+</section>
+
+<style>
+    /* Stilar för annonssektionen */
+    .annons-sektion {
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .annons-container {
+        width: 728px;
+        height: 90px;
+        margin: 0 auto;
+    }
+
+    /* Höger sektion för annons och produktgrid */
+    .right-section {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .annons-container-right {
+        width: 100%;
+        text-align: right;
+    }
+
+    /* Globala stilar för produktsektionen */
     .produktgallery {
         background: #0a0a0a;
         color: #fff;
@@ -673,7 +715,7 @@ document.addEventListener('keydown', (e) => {
         border-radius: 12px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
-    
+
     /* Filtermeny */
     .filter-sidebar {
         flex: 0 0 250px;
@@ -682,41 +724,41 @@ document.addEventListener('keydown', (e) => {
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .filter-group {
         margin-bottom: 2rem;
     }
-    
+
     .filter-group h4 {
         color: #00ff88;
         margin: 1rem 0;
         font-size: 0.9rem;
         text-transform: uppercase;
     }
-    
+
     .filter-group label {
         display: block;
         margin: 0.5rem 0;
         font-size: 0.9rem;
     }
-    
+
     .pris-reglage {
         width: 80%;
         margin-top: 0.5rem;
         accent-color: #00ff88;
     }
-    
+
     .pris-visning {
         margin-top: 0.5rem;
         font-size: 0.9rem;
         color: #fff;
     }
-    
+
     .pris-visning span {
         color: #00ff88;
         font-weight: bold;
     }
-    
+
     /* Produktgrid */
     .produkt-grid {
         flex: 1;
@@ -724,7 +766,7 @@ document.addEventListener('keydown', (e) => {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 1.5rem;
     }
-    
+
     /* Produktkort */
     .produkt-kort {
         background: #1a1a1a;
@@ -735,12 +777,12 @@ document.addEventListener('keydown', (e) => {
         color: #fff;
         border: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .produkt-kort:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 16px rgba(0, 255, 136, 0.2);
     }
-    
+
     .produkt-kort img {
         width: 100%;
         height: 200px;
@@ -748,32 +790,32 @@ document.addEventListener('keydown', (e) => {
         border-radius: 8px;
         margin-bottom: 1rem;
     }
-    
+
     .produkt-kort h3 {
         color: #00ff88;
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }
-    
+
     .produkt-kort .beskrivning {
         font-size: 0.9rem;
         color: #ccc;
         margin-bottom: 1rem;
     }
-    
+
     .produkt-detaljer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 1rem;
     }
-    
+
     .pris {
         color: #00ff88;
         font-size: 1.4rem;
         font-weight: bold;
     }
-    
+
     .cta-knapp {
         background: #00ff88;
         color: #0a0a0a;
@@ -784,13 +826,13 @@ document.addEventListener('keydown', (e) => {
         font-weight: bold;
         transition: all 0.3s ease;
     }
-    
+
     .cta-knapp:hover {
         background: #0a0a0a;
         color: #00ff88;
         outline: 2px solid #00ff88;
     }
-    
+
     .tillgänglighet {
         position: absolute;
         top: 1.5rem;
@@ -801,7 +843,7 @@ document.addEventListener('keydown', (e) => {
         border-radius: 4px;
         font-size: 0.8rem;
     }
-    
+
     .erbjudande-ribbon {
         position: absolute;
         top: 10px;
@@ -812,19 +854,23 @@ document.addEventListener('keydown', (e) => {
         font-weight: bold;
         clip-path: polygon(100% 0%, 95% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
     }
-    
+
     /* Responsiv design */
     @media (max-width: 768px) {
         .produktgallery {
             flex-direction: column;
         }
-    
+
         .produkt-grid {
             grid-template-columns: 1fr;
         }
-    }
-    </style>
 
+        .annons-container {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
 
     <script async="async" data-cfasync="false" src="//pl26051067.effectiveratecpm.com/b4527e4d9fba30c0f69cd5c37db58541/invoke.js"></script>
 <div id="container-b4527e4d9fba30c0f69cd5c37db58541"></div>

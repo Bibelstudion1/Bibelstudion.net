@@ -2270,7 +2270,50 @@
     });
   </script>
 
+  <section id="fritid-banner" onclick="goToPage()">
+    <img src="image/Blue Minimalist Business Promotion Twitter Header.png" 
+         alt="Fritid och inspiration på Bibelstudion" 
+         class="banner-image">
+</section>
+<style>
+    #fritid-banner {
+        position: relative;
+        width: 100%;
+        height: 85vh;
+        overflow: hidden;
+        cursor: pointer;
+    }
 
+    .banner-image {
+        width: 100%;
+        height: 80%; /* Justerat till 80% för att minska höjden */
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image-description {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Effekt vid hover */
+    #fritid-banner:hover .banner-image {
+        transform: scale(1.05);
+    }
+</style>
+
+<script>
+    function goToPage() {
+        window.location.href = "Bibelstudier.html";
+    }
+</script>
+
+  
+  
  
 
   <section style="background: #0a0a0a; color: white; padding: 20px; font-family: Arial, sans-serif;">

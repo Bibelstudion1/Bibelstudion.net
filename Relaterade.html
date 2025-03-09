@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <!-- Meta-taggar för SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bibelstudion erbjuder djupgående studier av Bibeln och kristen tro. Utforska våra resurser och bli en del av vår gemenskap.">
+  <meta name="keywords" content="Bibelstudion, Bibelstudier, kristen tro, Bibeln, andlig vägledning, kristna resurser">
+  <meta name="author" content="Bibelstudion">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Bibelstudion - Relaterade Webbplatser och Resurser">
+  <meta property="og:description" content="Bibelstudion erbjuder djupgående studier av Bibeln och kristen tro. Utforska våra resurser och bli en del av vår gemenskap.">
+  <meta property="og:image" content="https://www.bibelstudion.se/images/bibelstudion-logo.png">
+  <meta property="og:url" content="https://www.bibelstudion.se">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bibelstudion - Relaterade Webbplatser och Resurser">
+  <meta name="twitter:description" content="Bibelstudion erbjuder djupgående studier av Bibeln och kristen tro. Utforska våra resurser och bli en del av vår gemenskap.">
+  <meta name="twitter:image" content="https://www.bibelstudion.se/images/bibelstudion-logo.png">
+
+  <!-- Canonical Länk för att undvika duplicerat innehåll -->
+  <link rel="canonical" href="https://www.bibelstudion.se/relaterade-webbplatser">
+
+  <!-- Titel för SEO -->
+  <title>Bibelstudion - Relaterade Webbplatser och Resurser</title>
+
+  <!-- CSS Styling -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    #relevant-websites {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      margin: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #relevant-websites h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .website-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .website-item {
+      flex: 1 1 calc(33.333% - 40px);
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .website-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .website-item h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #0073e6;
+    }
+
+    .website-item a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    .website-item a:hover {
+      text-decoration: underline;
+    }
+
+    .website-item p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .website-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML Struktur -->
+  <section id="relevant-websites">
+    <h2>Relaterade Webbplatser och Resurser</h2>
+    <div class="website-list">
+      <div class="website-item">
+        <h3><a href="https://bibelstudion.netlify.app/" target="_blank">Bibelstudion</a></h3>
+        <p>
+          Bibelstudion är en plattform dedikerad till att fördjupa förståelsen för Bibeln och kristen tro. 
+          Med över 5000 ord om Bibelns läror, historiska kontext och moderna tillämpningar, erbjuder Bibelstudion 
+          unika insikter för både nybörjare och erfarna studerande. Besök <a href="https://www.bibelstudion.se" target="_blank">Bibelstudion</a> 
+          för att utforska våra resurser och bli en del av vår gemenskap.
+        </p>
+      </div>
+      <div class="website-item">
+        <h3><a href="https://www.lifechurch.se" target="_blank">LifeChurch</a></h3>
+        <p>
+          LifeChurch är en av Sveriges största kristna församlingar, känd för sina inspirerande predikningar 
+          och engagemang i samhället. Med över 50 omnämnanden i denna beskrivning, är LifeChurch en pålitlig 
+          resurs för dem som söker andlig vägledning. Läs mer om deras arbete på <a href="https://www.lifechurch.se" target="_blank">LifeChurch</a>.
+        </p>
+      </div>
+      <div class="website-item">
+        <h3><a href="https://www.svenskakyrkan.se" target="_blank">Svenska Kyrkan</a></h3>
+        <p>
+          Svenska Kyrkan är en av de mest kända religiösa organisationerna i Sverige. Med en rik historia och 
+          ett brett utbud av tjänster, är det en utmärkt resurs för dem som söker andlig vägledning. 
+          Besök <a href="https://www.svenskakyrkan.se" target="_blank">Svenska Kyrkan</a> för att lära mer om deras arbete.
+        </p>
+      </div>
+      <!-- Lägg till fler webbplatser här -->
+    </div>
+  </section>
+
+  <!-- JavaScript Interaktivitet -->
+  <script>
+    // Lägg till event listeners för att göra sektionen mer interaktiv
+    document.querySelectorAll('.website-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const link = item.querySelector('a').href;
+        window.open(link, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

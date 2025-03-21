@@ -302,6 +302,45 @@
       margin: 0 0.5rem;
       font-size: 1.2rem;
     }
+
+    /* Grundläggande responsiv design */
+@media (max-width: 1024px) {
+  .user-actions {
+    gap: 10px; /* Minskar mellanrum för bättre passform */
+  }
+
+  .action-link span {
+    display: none; /* Döljer text på mindre skärmar */
+  }
+
+  .action-link i {
+    font-size: 1.8em; /* Större ikoner för touchvänlighet */
+  }
+}
+
+/* Specifikt för smartphones */
+@media (max-width: 768px) {
+  .user-actions {
+    flex-direction: row; /* Justerar layout för mindre skärmar */
+    justify-content: center;
+  }
+
+  .action-link i {
+    font-size: 2em; /* Gör ikoner ännu större för bättre användarvänlighet */
+  }
+}
+
+/* Extra optimering för mycket små skärmar */
+@media (max-width: 480px) {
+  .user-actions {
+    gap: 8px;
+  }
+
+  .action-link i {
+    font-size: 2.2em; /* Extra stora ikoner för bättre klickbarhet */
+  }
+}
+
   </style>
 
 </head>

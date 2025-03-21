@@ -303,41 +303,77 @@
       font-size: 1.2rem;
     }
 
-    /* Grundläggande responsiv design */
-@media (max-width: 1024px) {
+/* === Flexibel container för användarens åtgärder === */
+.user-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Standard mellanrum */
+  padding: 10px 20px;
+}
+
+/* === Ikoner och länkar === */
+.action-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.action-link i {
+  font-size: 1.5em;
+  transition: transform 0.2s ease-in-out;
+}
+
+.action-link:hover i {
+  transform: scale(1.1);
+}
+
+/* === Media Queries för responsiv design === */
+
+/* 📱 Mobil-först design */
+@media (max-width: 768px) {
   .user-actions {
-    gap: 10px; /* Minskar mellanrum för bättre passform */
+    gap: 12px;
+    padding: 10px;
   }
 
   .action-link span {
-    display: none; /* Döljer text på mindre skärmar */
+    display: none; /* Döljer texten på mobil för att spara plats */
   }
 
   .action-link i {
-    font-size: 1.8em; /* Större ikoner för touchvänlighet */
+    font-size: 2em; /* Gör ikoner större */
+    padding: 10px; /* Lägger till mer klickyta */
   }
 }
 
-/* Specifikt för smartphones */
-@media (max-width: 768px) {
-  .user-actions {
-    flex-direction: row; /* Justerar layout för mindre skärmar */
-    justify-content: center;
-  }
-
-  .action-link i {
-    font-size: 2em; /* Gör ikoner ännu större för bättre användarvänlighet */
-  }
-}
-
-/* Extra optimering för mycket små skärmar */
+/* 📲 Extra optimering för riktigt små skärmar (t.ex. iPhone SE) */
 @media (max-width: 480px) {
   .user-actions {
     gap: 8px;
   }
 
   .action-link i {
-    font-size: 2.2em; /* Extra stora ikoner för bättre klickbarhet */
+    font-size: 2.2em; /* Ännu större ikoner */
+    padding: 12px;
+  }
+}
+
+/* 💻 Förbättringar för större skärmar */
+@media (min-width: 1024px) {
+  .user-actions {
+    gap: 25px;
+  }
+
+  .action-link {
+    font-size: 1.1rem;
+  }
+
+  .action-link i {
+    font-size: 1.6em;
   }
 }
 
@@ -396,49 +432,6 @@
         <span>Kundvagn</span>
       </a>
     </div>
-
-    <style>
-      .user-actions {
-        display: flex;
-        gap: 25px;
-        align-items: center;
-      }
-
-      .action-link {
-        color: #00ff88;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.3s ease;
-        padding: 10px 15px;
-        border-radius: 5px;
-      }
-
-      .action-link:hover {
-        background-color: rgba(0, 255, 136, 0.1);
-        transform: translateY(-2px);
-      }
-
-      .action-link i {
-        font-size: 1.2em;
-      }
-
-      /* Responsiv design */
-      @media (max-width: 768px) {
-        .user-actions {
-          gap: 15px;
-        }
-
-        .action-link span {
-          display: none;
-        }
-
-        .action-link i {
-          font-size: 1.5em;
-        }
-      }
-    </style>
 
     <!-- Lägg till Font Awesome i headern -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

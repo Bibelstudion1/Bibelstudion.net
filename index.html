@@ -359,6 +359,52 @@
       </a>
     </div>
 
+    
+
+        
+    <style>
+      .user-actions {
+          display: flex;
+          gap: 25px;
+          align-items: center;
+      }
+      
+      .action-link {
+          color: #00ff88;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          transition: all 0.3s ease;
+          padding: 10px 15px;
+          border-radius: 5px;
+      }
+      
+      .action-link:hover {
+          background-color: rgba(0, 255, 136, 0.1);
+          transform: translateY(-2px);
+      }
+      
+      .action-link i {
+          font-size: 1.2em;
+      }
+      
+      /* Responsiv design */
+      @media (max-width: 768px) {
+          .user-actions {
+              gap: 15px;
+          }
+          
+          .action-link span {
+              display: none;
+          }
+          
+          .action-link i {
+              font-size: 1.5em;
+          }
+      }
+      </style>
+
     <!-- Lägg till Font Awesome i headern -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 

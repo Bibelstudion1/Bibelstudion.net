@@ -303,77 +303,81 @@
       font-size: 1.2rem;
     }
 
-/* === Flexibel container för användarens åtgärder === */
+
+/* === Flexibel container för knappar === */
 .user-actions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Standard mellanrum */
-  padding: 10px 20px;
+  gap: 15px; /* Balanserat mellanrum */
+  padding: 8px 15px;
 }
 
-/* === Ikoner och länkar === */
+/* === Stil för länkar och ikoner === */
 .action-link {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #333;
-  font-size: 1rem;
-  transition: all 0.3s ease-in-out;
+  font-size: 0.9rem; /* Balanserad textstorlek */
+  transition: all 0.2s ease-in-out;
 }
 
 .action-link i {
-  font-size: 1.5em;
+  font-size: 1.4em; /* Normalstor ikon */
   transition: transform 0.2s ease-in-out;
 }
 
-.action-link:hover i {
-  transform: scale(1.1);
+/* === Hover-effekt på större skärmar === */
+@media (hover: hover) {
+  .action-link:hover i {
+    transform: scale(1.1);
+  }
 }
 
-/* === Media Queries för responsiv design === */
+/* === Responsiv design för olika enheter === */
 
-/* 📱 Mobil-först design */
+/* 📱 Mobiloptimering */
 @media (max-width: 768px) {
   .user-actions {
-    gap: 12px;
-    padding: 10px;
+    gap: 12px; /* Lite mindre mellanrum */
+    padding: 6px 12px;
   }
 
   .action-link span {
-    display: none; /* Döljer texten på mobil för att spara plats */
+    display: none; /* Döljer texten på mindre skärmar */
   }
 
   .action-link i {
-    font-size: 2em; /* Gör ikoner större */
-    padding: 10px; /* Lägger till mer klickyta */
+    font-size: 1.6em; /* Lite större men inte överdrivet */
+    padding: 6px;
   }
 }
 
-/* 📲 Extra optimering för riktigt små skärmar (t.ex. iPhone SE) */
+/* 📲 Små mobilskärmar (t.ex. iPhone SE) */
 @media (max-width: 480px) {
   .user-actions {
-    gap: 8px;
+    gap: 10px;
   }
 
   .action-link i {
-    font-size: 2.2em; /* Ännu större ikoner */
-    padding: 12px;
+    font-size: 1.5em; /* Mindre än tidigare men fortfarande klickvänligt */
+    padding: 5px;
   }
 }
 
-/* 💻 Förbättringar för större skärmar */
+/* 💻 Större skärmar */
 @media (min-width: 1024px) {
   .user-actions {
-    gap: 25px;
+    gap: 20px;
   }
 
   .action-link {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .action-link i {
-    font-size: 1.6em;
+    font-size: 1.3em;
   }
 }
 

@@ -303,81 +303,56 @@
       font-size: 1.2rem;
     }
 
-
-/* === Flexibel container för knappar === */
-.user-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px; /* Balanserat mellanrum */
-  padding: 8px 15px;
+/* === Gör sidan responsiv och ser likadan ut överallt === */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Förhindra horisontell scroll */
 }
 
-/* === Stil för länkar och ikoner === */
-.action-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #333;
-  font-size: 0.9rem; /* Balanserad textstorlek */
-  transition: all 0.2s ease-in-out;
+.container {
+  max-width: 1200px; /* Begränsar bredden på stora skärmar */
+  width: 90%;
+  margin: auto;
 }
 
-.action-link i {
-  font-size: 1.4em; /* Normalstor ikon */
-  transition: transform 0.2s ease-in-out;
+/* === Säkerställer att text och bilder behåller rätt storlek === */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* === Hover-effekt på större skärmar === */
-@media (hover: hover) {
-  .action-link:hover i {
-    transform: scale(1.1);
-  }
+h1, h2, h3, h4, p {
+  font-size: clamp(1rem, 2.5vw, 2rem); /* Dynamisk textstorlek */
 }
 
-/* === Responsiv design för olika enheter === */
-
-/* 📱 Mobiloptimering */
+/* === Anpassa grid och flexbox för mobiler === */
 @media (max-width: 768px) {
-  .user-actions {
-    gap: 12px; /* Lite mindre mellanrum */
-    padding: 6px 12px;
+  .container {
+    width: 95%;
   }
 
-  .action-link span {
-    display: none; /* Döljer texten på mindre skärmar */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .action-link i {
-    font-size: 1.6em; /* Lite större men inte överdrivet */
-    padding: 6px;
-  }
-}
-
-/* 📲 Små mobilskärmar (t.ex. iPhone SE) */
-@media (max-width: 480px) {
-  .user-actions {
-    gap: 10px;
+  .sidebar {
+    display: none; /* Döljer sidofält på små skärmar om de är i vägen */
   }
 
-  .action-link i {
-    font-size: 1.5em; /* Mindre än tidigare men fortfarande klickvänligt */
-    padding: 5px;
+  .nav {
+    flex-wrap: wrap; /* Gör navigationen flexibel */
   }
 }
 
-/* 💻 Större skärmar */
-@media (min-width: 1024px) {
-  .user-actions {
-    gap: 20px;
-  }
-
-  .action-link {
-    font-size: 1rem;
-  }
-
-  .action-link i {
-    font-size: 1.3em;
+/* === Anpassning för större surfplattor === */
+@media (max-width: 1024px) {
+  .container {
+    width: 85%;
   }
 }
 

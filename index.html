@@ -303,31 +303,6 @@
       font-size: 1.2rem;
     }
 
-/* === Gör sidan responsiv och ser likadan ut överallt === */
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Förhindra horisontell scroll */
-}
-
-.container {
-  max-width: 1200px; /* Begränsar bredden på stora skärmar */
-  width: 90%;
-  margin: auto;
-}
-
-/* === Säkerställer att text och bilder behåller rätt storlek === */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-h1, h2, h3, h4, p {
-  font-size: clamp(1rem, 2.5vw, 2rem); /* Dynamisk textstorlek */
-}
-
 /* === Anpassa grid och flexbox för mobiler === */
 @media (max-width: 768px) {
   .container {
@@ -338,10 +313,6 @@ h1, h2, h3, h4, p {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .sidebar {
-    display: none; /* Döljer sidofält på små skärmar om de är i vägen */
   }
 
   .nav {

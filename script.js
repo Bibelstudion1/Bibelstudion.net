@@ -539,3 +539,18 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
       alert('Betalning misslyckades: ' + error.message);
     }
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

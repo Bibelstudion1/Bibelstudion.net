@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://bibelstudion.netlify.app/sitemap.xml
